@@ -1,0 +1,5 @@
+jQuery(function($) { 
+	console.log("%cBIG BROTHER IS WATCHING YOU", "font: 3em sans-serif; color: yellow; background-color: red;");
+	console.log("Mr.Khwanchai Kaewyos");
+	console.log("khwanchai@gmail.com");
+});

@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0036)https://www.unzeen.com/article/3407/ -->
+<html xmlns="https://www.w3.org/1999/xhtml"><head profile="https://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>
+
+
+ » การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266)  | DevExperience: ://
+</title>
+
+<link rel="stylesheet" href="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://www.unzeen.com/feed/">
+<link rel="alternate" type="text/xml" title="RSS .92" href="https://www.unzeen.com/feed/rss/">
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="https://www.unzeen.com/feed/atom/">
+<link rel="pingback" href="https://www.unzeen.com/xmlrpc.php">
+<link href="https://plus.google.com/100050804819975216494" rel="publisher">
+<link rel="icon" href="https://www.unzeen.com/favicon.ico" type="image/x-icon">
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="DevExperience » การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) Comments Feed" href="https://www.unzeen.com/article/3407/feed/">
+		<script src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sdk.js.ดาวน์โหลด" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sdk.js(1).ดาวน์โหลด"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.unzeen.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.4"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/wp-emoji-release.min.js.ดาวน์โหลด" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wp-pagenavi-css" href="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/pagenavi-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-syntax-css-css" href="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/wp-syntax.css" type="text/css" media="all">
+<script type="text/javascript" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/jquery.js.ดาวน์โหลด"></script>
+<script type="text/javascript" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/jquery-migrate.min.js.ดาวน์โหลด"></script>
+<link rel="https://api.w.org/" href="https://www.unzeen.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.unzeen.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.unzeen.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="﻿การสร้าง Telegram Bot สำหรับส่งข้อมูลแจ้งเตือนจาก ESP8266" href="https://www.unzeen.com/article/3383/">
+<link rel="next" title="การอัพโหลดรูปภาพและวิดีโอขึ้น Instagram โดยใช้ PHP" href="https://www.unzeen.com/article/3425/">
+<meta name="generator" content="WordPress 4.7.4">
+<link rel="canonical" href="https://www.unzeen.com/article/3407/">
+<link rel="shortlink" href="https://www.unzeen.com/?p=3407">
+<link rel="alternate" type="application/json+oembed" href="https://www.unzeen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.unzeen.com%2Farticle%2F3407%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.unzeen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.unzeen.com%2Farticle%2F3407%2F&amp;format=xml">
+
+<script src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/jquery-1.11.1.min.js.ดาวน์โหลด"></script>
+<script src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/jquery.start.js.ดาวน์โหลด"></script>
+
+
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style><script type="text/javascript" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/int.js.ดาวน์โหลด"></script><script type="text/javascript" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/api"></script></head>
+<body>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/ga.js.ดาวน์โหลด" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-199578-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '359739100731813',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="wp_wrap">
+<div id="wp_container">
+
+<div id="wp_header">
+<div class="wp_header_top">
+<div class="search_boxes">
+<h2>Search?</h2>
+<form method="get" action="https://www.unzeen.com/index.php">
+<p><input name="s" type="text" class="texxybox" value="I want something" onblur="if (this.value == &#39;&#39;) {this.value = &#39;I want something&#39;;}" onfocus="if (this.value == &#39;I want something&#39;) {this.value = &#39;&#39;;}"></p>
+<p><input name="submit" type="image" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/search.gif" class="sfit"></p>
+</form>
+</div>
+
+<div class="site_title"><a href="https://www.unzeen.com/"><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/wpblog.gif" alt="Experience Zone : Share Experience With Respect To FreeBSD/Debian/Ubuntu/PHP/C#"></a>
+</div>
+
+<div class="top_navigator">
+<ul>
+<li><a href="https://www.unzeen.com/">Home</a></li>
+
+<li class="page_item page-item-10"><a href="https://www.unzeen.com/book/">Book</a></li>
+<li class="page_item page-item-3195"><a href="https://www.unzeen.com/hack/">Hack</a></li>
+<li class="page_item page-item-8"><a href="https://www.unzeen.com/projects/">Projects</a></li>
+<li class="page_item page-item-317"><a href="https://www.unzeen.com/service/">Service</a></li>
+<li class="page_item page-item-2"><a href="https://www.unzeen.com/about-me/">About Me</a></li>
+<li class="page_item page-item-6"><a href="https://www.unzeen.com/contact-us/">Contact Us</a></li>
+
+<li><a href="https://www.unzeen.com/dictionary">Dictionary</a></li>
+<li><a href="https://www.unzeen.com/tripitaka">Tripitaka</a></li>
+</ul>
+</div>
+
+
+</div>
+<div class="wp_header_fixed"></div>
+</div>
+
+<div id="wp_content">
+
+<div id="post_entry">
+
+ <!-- init post page -->
+
+<div class="post_meta" id="post-3407">
+
+<div class="post_title">
+<div class="post_permalink">
+<h1><a href="https://www.unzeen.com/article/3407/" rel="bookmark" title="การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266)">การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266)</a></h1>
+<span class="author">Posted By: <a href="https://www.unzeen.com/article/author/admin/" title="Posts by LookHin" rel="author">LookHin</a>&nbsp;</span>
+<span class="category">Published in <a href="https://www.unzeen.com/article/category/all-categories/" rel="category tag">All Categories</a>, <a href="https://www.unzeen.com/article/category/raspberry-pi-ioio-arduino/" rel="category tag">RaspberryPi/IOIO/Arduino</a>, <a href="https://www.unzeen.com/article/category/hardware-network/" rel="category tag">Hardware/Network</a></span>
+</div>
+<div class="post_date"><p class="days">6</p><p class="month">Feb 17</p></div>
+</div>
+
+<div class="post_content">
+
+<p><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/arduino.png" width="100" height="100" class="img-logo"> ภายในของ Sonoff WiFi Smart Switch ก็เป็น ESP8266 ที่ต่อกับรีเลย์เพื่อใช้ควบคุมการเปิดปิดของวงจรไฟฟ้า โดยสามารถใช้งานกับไฟบ้านที่แรงดัน 90-250v AC(50/60Hz) รับกระแสได้สูงสุด 10A เพียงพอสำหรับการเอามาใช้สำหรับเปิดปิดหลอดไฟทั่วๆ ไป ราคาประมาณ 280-300 บาท ซึ่งทางผู้ผลิตเขาก็มีแอพชื่อ <a href="https://play.google.com/store/apps/details?id=com.coolkit&amp;hl=th" target="_blank">eWeLink</a> เอาไว้ให้เราโหลดมาใช้ควบคุมตัวสวิตซ์ตัวนี้ได้อยู่แล้วแหละ แต่ว่ามันก็ใช้แค่เปิดปิดกับตั้งเวลาได้เท่านั้น ซึ่งไม่ได้ตรงกับความต้องการของเรา ความต้องการของเราคือต้องการทำให้หลอดไฟจุดทุกในบ้านสามารถควบคุมได้ผ่านระบบควบคุมกลางคือ Raspberry Pi 3 (แต่ในบทความนี้จะพูดถึงแค่การเขียนโปรแกรมลงบน ESP8266 ของ Sonoff WiFi Smart Switch เท่านั้นนะครับ)</p>
+<p><span id="more-3407"></span></p>
+<p>หลังจากไปหาซื้อมาแล้วก็แกะกล่อง ใช้ไขขวงดันๆ เดียวมันก็หลุดออกมาครับ (หลุดพร้อมประกัน)</p>
+<p><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sonoff-smart-switch-01.jpg" alt="Sonoff WiFi Smart Switch (ESP8266)"></p>
+<p>ตรงกลางๆ ของแผ่นวงจรจะเห็นมีรูให้บัดกรีขาอยู่ 5 ขา ให้เอาก้างปลามาบัดกรีให้เรียบร้อย (ถ้าเป็นรุ่นก่อนหน้านี้จะมีอยู่ 4 ขา ซึ่งจริงๆ เราก็ใช้แค่ 4 ขานั้นหละ ส่วนขาที่ 5 เป็น GPIO14 เผื่อว่าเราอยากต่อเซ็นเซอร์อะไรเพิ่มเติม) โดยถ้ามองจากด้านบนจะมีตำแหน่งของขาต่างๆ ดังนี้</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre class="text" style="font-family:monospace;">GPIO14
+GND
+TX
+RX
+VCC 3.3V</pre></td></tr></tbody></table><p class="theCode" style="display:none;">GPIO14
+GND
+TX
+RX
+VCC 3.3V</p></div>
+
+<p><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sonoff-smart-switch-02.jpg" alt="Sonoff WiFi Smart Switch (ESP8266)"></p>
+<p>เมื่อบัดกรีขาต่างๆ เรียบร้อยแล้ว ให้ทำการต่อ Sonoff กับ USB To UART เพื่อทำการเขียนโปรแรกมลงไป โดยให้ต่อขาต่างๆ ดังนี้</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre class="text" style="font-family:monospace;">[Sonoff] --&gt; [USB To UART]
+VCC --&gt; VCC (3.3V)
+RX --&gt; TX
+TX --&gt; RX
+GND --&gt;GND</pre></td></tr></tbody></table><p class="theCode" style="display:none;">[Sonoff] --&gt; [USB To UART]
+VCC --&gt; VCC (3.3V)
+RX --&gt; TX
+TX --&gt; RX
+GND --&gt;GND</p></div>
+
+<p><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sonoff-smart-switch-03.jpg" alt="Sonoff WiFi Smart Switch (ESP8266)"></p>
+<p>หลังจากต่อวงจรเสร็จเรียบร้อยให้ทำการกดสวิตซ์สีดำค้างเอาไว้ และเสียบสาย USB เข้ากับคอมพิวเตอร์เพื่อทำการโปรแกรม (ต้องกดค้างก่อนเสียบสายด้วยนะครับ สำคัญมากๆ) โดยให้เขียนโค้ดต่างๆ ดังนี้</p>
+<p>โดยให้ใส่ SSID และ Password ของ WI-FI ของเราลงไป และเราจะเขียนโปรแรกมให้ฟิกค่า IP ของอุปกรณ์เอาไว้เพื่อความสะดวกในการเรียกใช้งาน (คงไม่สะดวกแน่ๆ ถ้าจะให้มันรับ DHCP เข้ามา) <a href="https://www.unzeen.com/example/esp8266/Smart-Switch.zip" target="_blank">ดาวน์โหลดโค้ดตัวอย่าง</a></p>
+
+<div class="wp_syntax" style="position:relative;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre class="text" style="font-family:monospace;">const char* ssid = "WIFI_SSID";
+const char* password = "WIFI_PASSWORD";
+&nbsp;
+const IPAddress ip(192, 168, 1, 100); // IP ของอุปกรณ์ตัวนี้ 192.168.1.100
+const IPAddress subnet(255, 255, 255, 0);
+const IPAddress gt(192, 168, 1, 1);</pre></td></tr></tbody></table><p class="theCode" style="display:none;">const char* ssid = "WIFI_SSID";
+const char* password = "WIFI_PASSWORD";
+
+const IPAddress ip(192, 168, 1, 100); // IP ของอุปกรณ์ตัวนี้ 192.168.1.100
+const IPAddress subnet(255, 255, 255, 0);
+const IPAddress gt(192, 168, 1, 1);</p></div>
+
+
+<div class="wp_syntax" style="position:relative;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+</pre></td><td class="code"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;ESP8266WiFi.h&gt;</span>
+<span style="color: #339933;">#include &lt;ESP8266WebServer.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">const</span> <span style="color: #993333;">char</span><span style="color: #339933;">*</span> ssid <span style="color: #339933;">=</span> <span style="color: #ff0000;">"WIFI_SSID"</span><span style="color: #339933;">;</span>
+<span style="color: #993333;">const</span> <span style="color: #993333;">char</span><span style="color: #339933;">*</span> password <span style="color: #339933;">=</span> <span style="color: #ff0000;">"WIFI_PASSWORD"</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #993333;">const</span> IPAddress ip<span style="color: #009900;">(</span><span style="color: #0000dd;">192</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">168</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">100</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #993333;">const</span> IPAddress subnet<span style="color: #009900;">(</span><span style="color: #0000dd;">255</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">255</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">255</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">0</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #993333;">const</span> IPAddress gt<span style="color: #009900;">(</span><span style="color: #0000dd;">192</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">168</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">,</span> <span style="color: #0000dd;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #993333;">const</span> <span style="color: #993333;">int</span> SwitchPin <span style="color: #339933;">=</span> <span style="color: #0000dd;">12</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// GPIO12</span>
+<span style="color: #993333;">int</span> SwitchValue <span style="color: #339933;">=</span> HIGH<span style="color: #339933;">;</span>
+&nbsp;
+ESP8266WebServer server<span style="color: #009900;">(</span><span style="color: #0000dd;">80</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #993333;">void</span> handleNotFound<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+  <span style="color: #666666; font-style: italic;">//server.send(404, "text/plain", "404 Not Found");</span>
+&nbsp;
+  <span style="color: #b1b100;">if</span><span style="color: #009900;">(</span>SwitchValue <span style="color: #339933;">==</span> HIGH<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    server.<span style="color: #202020;">send</span><span style="color: #009900;">(</span><span style="color: #0000dd;">200</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"text/plain"</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"ON"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span><span style="color: #b1b100;">else</span><span style="color: #009900;">{</span>
+    server.<span style="color: #202020;">send</span><span style="color: #009900;">(</span><span style="color: #0000dd;">200</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"text/plain"</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"OFF"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+&nbsp;
+  delay<span style="color: #009900;">(</span><span style="color: #0000dd;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+<span style="color: #993333;">void</span> setup<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+&nbsp;
+  <span style="color: #666666; font-style: italic;">// Set Output PIN</span>
+  pinMode<span style="color: #009900;">(</span>SwitchPin<span style="color: #339933;">,</span> OUTPUT<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  digitalWrite<span style="color: #009900;">(</span>SwitchPin<span style="color: #339933;">,</span> SwitchValue<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #666666; font-style: italic;">// Connect WiFi</span>
+  WiFi.<span style="color: #202020;">mode</span><span style="color: #009900;">(</span>WIFI_STA<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  WiFi.<span style="color: #202020;">config</span><span style="color: #009900;">(</span>ip<span style="color: #339933;">,</span> gt<span style="color: #339933;">,</span> subnet<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  WiFi.<span style="color: #202020;">begin</span><span style="color: #009900;">(</span>ssid<span style="color: #339933;">,</span> password<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #666666; font-style: italic;">// Wait for connection</span>
+  <span style="color: #b1b100;">while</span><span style="color: #009900;">(</span>WiFi.<span style="color: #202020;">status</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">!=</span> WL_CONNECTED<span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+    delay<span style="color: #009900;">(</span><span style="color: #0000dd;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+&nbsp;
+  server.<span style="color: #202020;">on</span><span style="color: #009900;">(</span><span style="color: #ff0000;">"/"</span><span style="color: #339933;">,</span> <span style="color: #009900;">[</span><span style="color: #009900;">]</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+    <span style="color: #b1b100;">if</span><span style="color: #009900;">(</span>SwitchValue <span style="color: #339933;">==</span> HIGH<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+      server.<span style="color: #202020;">send</span><span style="color: #009900;">(</span><span style="color: #0000dd;">200</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"text/plain"</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"ON"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span><span style="color: #b1b100;">else</span><span style="color: #009900;">{</span>
+      server.<span style="color: #202020;">send</span><span style="color: #009900;">(</span><span style="color: #0000dd;">200</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"text/plain"</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"OFF"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+&nbsp;
+    delay<span style="color: #009900;">(</span><span style="color: #0000dd;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  server.<span style="color: #202020;">on</span><span style="color: #009900;">(</span><span style="color: #ff0000;">"/ON"</span><span style="color: #339933;">,</span> <span style="color: #009900;">[</span><span style="color: #009900;">]</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+    SwitchValue <span style="color: #339933;">=</span> HIGH<span style="color: #339933;">;</span>
+&nbsp;
+    server.<span style="color: #202020;">send</span><span style="color: #009900;">(</span><span style="color: #0000dd;">200</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"text/plain"</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"ON"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    digitalWrite<span style="color: #009900;">(</span>SwitchPin<span style="color: #339933;">,</span> SwitchValue<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    delay<span style="color: #009900;">(</span><span style="color: #0000dd;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  server.<span style="color: #202020;">on</span><span style="color: #009900;">(</span><span style="color: #ff0000;">"/OFF"</span><span style="color: #339933;">,</span> <span style="color: #009900;">[</span><span style="color: #009900;">]</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+    SwitchValue <span style="color: #339933;">=</span> LOW<span style="color: #339933;">;</span>
+&nbsp;
+    server.<span style="color: #202020;">send</span><span style="color: #009900;">(</span><span style="color: #0000dd;">200</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"text/plain"</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">"OFF"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    digitalWrite<span style="color: #009900;">(</span>SwitchPin<span style="color: #339933;">,</span> SwitchValue<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    delay<span style="color: #009900;">(</span><span style="color: #0000dd;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  server.<span style="color: #202020;">onNotFound</span><span style="color: #009900;">(</span>handleNotFound<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  server.<span style="color: #202020;">begin</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+<span style="color: #993333;">void</span> loop<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>
+  server.<span style="color: #202020;">handleClient</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table><p class="theCode" style="display:none;">#include &lt;ESP8266WiFi.h&gt;
+#include &lt;ESP8266WebServer.h&gt;
+
+const char* ssid = "WIFI_SSID";
+const char* password = "WIFI_PASSWORD";
+
+const IPAddress ip(192, 168, 1, 100);
+const IPAddress subnet(255, 255, 255, 0);
+const IPAddress gt(192, 168, 1, 1);
+
+const int SwitchPin = 12; // GPIO12
+int SwitchValue = HIGH;
+
+ESP8266WebServer server(80);
+
+void handleNotFound(){
+  //server.send(404, "text/plain", "404 Not Found");
+
+  if(SwitchValue == HIGH) {
+    server.send(200, "text/plain", "ON");
+  }else{
+    server.send(200, "text/plain", "OFF");
+  }
+
+  delay(1000);
+}
+
+void setup(void){
+
+  // Set Output PIN
+  pinMode(SwitchPin, OUTPUT);
+  digitalWrite(SwitchPin, SwitchValue);
+
+  // Connect WiFi
+  WiFi.mode(WIFI_STA);
+  WiFi.config(ip, gt, subnet);
+  WiFi.begin(ssid, password);
+
+  // Wait for connection
+  while(WiFi.status() != WL_CONNECTED){
+    delay(1000);
+  }
+
+  server.on("/", [](){
+    if(SwitchValue == HIGH) {
+      server.send(200, "text/plain", "ON");
+    }else{
+      server.send(200, "text/plain", "OFF");
+    }
+
+    delay(1000);
+  });
+
+  server.on("/ON", [](){
+    SwitchValue = HIGH;
+
+    server.send(200, "text/plain", "ON");
+    digitalWrite(SwitchPin, SwitchValue);
+    delay(1000);
+  });
+
+  server.on("/OFF", [](){
+    SwitchValue = LOW;
+
+    server.send(200, "text/plain", "OFF");
+    digitalWrite(SwitchPin, SwitchValue);
+    delay(1000);
+  });
+
+  server.onNotFound(handleNotFound);
+
+  server.begin();
+}
+
+void loop(void){
+  server.handleClient();
+}</p></div>
+
+<p>เพื่อความสะดวกในการนำไปติดตั้งใช้งานจริง เราจะหาแม่เหล็กกระดุมมาติดกับฐานของบอร์ทเอาไว้ เพื่อจะได้เอาไปติดกับโคมไฟเพดานง่ายๆ หน่อย แม่เหล็กขนาดนี้หาซื้อได้จากคลองถมนะครับ ตัวละ 15 บาท แต่ถ้าใครไม่มีก็หาวิธีติดเอาเอง เอากาวสองหน้าก็ได้</p>
+<p><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sonoff-smart-switch-04.jpg" alt="Sonoff WiFi Smart Switch (ESP8266)"></p>
+<p>หลังจากอัพโหลดโปรแกรมเรียบร้อยแล้ว ให้ทำการประกอบทุกอย่างลงกล่องให้เหมือนเดิมและนำไปใช้งานได้ (ที่สำคัญให้ต่อสาย L กับ N ให้ถูกทั้งขาเข้าและขาออกด้วยนะครับ)</p>
+<p><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/sonoff-smart-switch-05.jpg" alt="Sonoff WiFi Smart Switch (ESP8266)"></p>
+<p>ทดสอบสั่งเปิดปิดไฟ โดยเปิดบราวเซอร์และพิมพ์ IP ของ Sonoff WiFi Smart Switch ที่เราคอนฟิกไว้ตอนเขียนโปรแกรม ดังนี้</p>
+<p>http://192.168.1.100/ON<br>
+http://192.168.1.100/OFF</p>
+<p>ก่อนจบ: ข้อเสียอย่างหนึ่งของ Sonoff Smart Switch คือว่ามันใช้ Relay ธรรมดา ทำให้เวลาเปิดปิดวงจรจะมีเสียงนิดหน่อย ถ้าเป็นไปได้ผมว่าจะหา Solid State Relay มาเปลี่ยนอยู่ //แต่ก็แพง</p>
+
+</div>
+</div>
+<div class="clearfixed"></div>
+
+
+<!-- end for each post -->
+
+
+
+<div class="related_articles">
+<h2>Related articles</h2>
+<ul>
+<li><a href="https://www.unzeen.com/article/3616/" title="สร้างจาร์วิสแบบ ง่ายๆ โง่ๆ ด้วย Raspberry Pi + Snowboy">สร้างจาร์วิสแบบ ง่ายๆ โง่ๆ ด้วย Raspberry Pi + Snowboy</a> (April 23rd, 2017)</li>
+<li><a href="https://www.unzeen.com/article/3569/" title="การสตรีมไฟล์วิดีโอไปยัง Facebook Live และ Youtube Live ด้วย FFmpeg">การสตรีมไฟล์วิดีโอไปยัง Facebook Live และ Youtube Live ด้วย FFmpeg</a> (March 30th, 2017)</li>
+<li><a href="https://www.unzeen.com/article/3537/" title="เขียนโปรแกรมอัพโหลดข้อมูลไปเก็บไว้ที่ Google Drive">เขียนโปรแกรมอัพโหลดข้อมูลไปเก็บไว้ที่ Google Drive</a> (March 17th, 2017)</li>
+<li><a href="https://www.unzeen.com/article/3506/" title="การสร้าง LINE Bot ด้วย LINE Messaging API (Official API)">การสร้าง LINE Bot ด้วย LINE Messaging API (Official API)</a> (March 6th, 2017)</li>
+<li><a href="https://www.unzeen.com/article/3479/" title="การดักจับข้อมูลที่วิ่งเข้าออกบน HTTP/HTTPS จากแอพในมือถือ Android โดยใช้ Burp Suite">การดักจับข้อมูลที่วิ่งเข้าออกบน HTTP/HTTPS จากแอพในมือถือ Android โดยใช้ Burp Suite</a> (February 22nd, 2017)</li>
+</ul>
+</div>
+
+
+<div id="comment_templates">
+
+<h6>2 Responsed To This Post</h6>
+
+<div class="feedmenow">Subsribes to this topic <a href="https://www.unzeen.com/article/3407/feed/">Comment RSS</a> or <a href="https://www.unzeen.com/article/3407/trackback/">TrackBack URL</a></div>
+
+
+
+<div class="clear_com"></div>
+
+<div class="com_geek_alt">
+<div class="geek_avatar"><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/mygif_alt.gif" alt="mygif_alt" witdh="48" height="48"></div>
+
+<div class="geek_words">
+<span class="com_author">suwatchai2 Says,</span>
+<span class="locations">in 3-20-2017 at 10:39:15 from 110.164.68.126&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<div class="com"><p>เขียนโปรแกรมลงไปแล้ว ยังปิด-เปิดผ่านมือถือได้เหมือนเดิมไหมครับ</p>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="clear_com"></div>
+
+<div class="com_geek">
+<div class="geek_avatar"><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/mygif.gif" alt="mygif" witdh="48" height="48"></div>
+
+<div class="geek_words">
+<span class="com_author"><a href="http://www.lookhin.com/" rel="external nofollow" class="url">LookHin</a> Says,</span>
+<span class="locations">in 3-20-2017 at 10:45:50 from 61.91.188.198&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<div class="com"><p>ถ้า flash โปรแกรมใหม่ไปแล้ว ก็จะใช้โปรแกรมเดิมไม่ได้แล้วครับ</p>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+<h4>Leave A Reply</h4>
+
+<form action="https://www.unzeen.com/wp-comments-post.php" method="post">
+<p><input name="author" type="text" class="text_f" value="">&nbsp;Username (*required)</p>
+<p><input name="email" type="text" class="text_f" value="">&nbsp;Email Address (*private)</p>
+<p><input name="url" type="text" class="text_f" value="">&nbsp;Website (*optional)</p>
+
+<img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/cryptographp.php" align="absmiddle"><p><input type="text" name="securitycode" id="securitycode" size="30">&nbsp;Enter this code</p>
+
+<span class="inform"><a href="https://www.unzeen.com/article/3407/feed/">Inform</a> me when someone post new message here</span>
+<p><textarea name="comment" cols="40%" rows="8" class="text_a"></textarea></p>
+
+<div id="sbm"><p><input name="submit" type="submit" id="submit" value="Submit"><input type="hidden" name="comment_post_ID" value="3407"></p>
+
+</div>
+
+<em>Please Note: Comments Moderation maybe active so there is no need to resubmit your comment</em>
+
+</form>
+
+
+
+</div>
+
+</div>
+<div id="main_about">
+	<div style="float: left;">
+	<img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/plankton90x90.png" width="90" height="90" alt="LookHin">
+	</div>
+
+	<div style="float: left;">
+	<strong>Mr.Khwanchai Kaewyos (LookHin)</strong><br>
+	Mobile : 088-799-8421<br>
+	Name : LookHin<br>
+	E-mail : khwanchai@gmail.com<br><br>
+	<a href="https://github.com/LookHin" title="Github" target="_blank">https://github.com/LookHin</a><br>
+	<a href="https://www.facebook.com/LookHin" title="Facebook" target="_blank">https://www.facebook.com/LookHin</a><br>
+	<a href="https://twitter.com/LookHin" title="Twitter" target="_blank">https://twitter.com/LookHin</a><br>
+	<br>
+
+	
+	</div>
+	<div></div>
+</div>
+
+<div class="sidebars">
+<div class="widget_sidebar">
+
+<div id="categories-147154591" class="widget widget_categories"><h2>Categories</h2>		<ul>
+	<li class="cat-item cat-item-1"><a href="https://www.unzeen.com/article/category/all-categories/">All Categories</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="https://www.unzeen.com/article/category/php-java-python/">PHP/Java/Python</a>
+</li>
+	<li class="cat-item cat-item-273"><a href="https://www.unzeen.com/article/category/raspberry-pi-ioio-arduino/">RaspberryPi/IOIO/Arduino</a>
+</li>
+	<li class="cat-item cat-item-208"><a href="https://www.unzeen.com/article/category/android-windows-phone/">Android/WindowsPhone</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://www.unzeen.com/article/category/html-javascript-css/">HTML/JavaScript/CSS</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://www.unzeen.com/article/category/freebsd-linux/">FreeBSD/Linux</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="https://www.unzeen.com/article/category/shell-command/">Shell/Command</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="https://www.unzeen.com/article/category/sql-mysql/">SQL/MySQL</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="https://www.unzeen.com/article/category/hardware-network/">Hardware/Network</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="https://www.unzeen.com/article/category/software-tools/">Software/Tools</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="https://www.unzeen.com/article/category/religion-myth-history/">Religion/Myth/History</a>
+</li>
+	<li class="cat-item cat-item-103"><a href="https://www.unzeen.com/article/category/other/">Other</a>
+</li>
+		</ul>
+</div>
+
+</div>
+
+
+
+</div>
+<div id="ad_sidebars">
+
+<div class="sidebars_right">
+
+<div class="widget_sidebar">
+
+<!-- <h2>My Other Site</h2>
+<ul>
+	<li><a href="http://www.lookhin.com"><abbr title="lookhin.com">LookHin.com</abbr></a></li>
+	<li><a href="http://www.corecopy.com"><abbr title="lookhin.com">CoreCopy.com</abbr></a></li>
+</ul> -->
+
+<h2>What I Do</h2>
+<ul>
+	<li><a href="https://www.unzeen.com/service"><abbr title="Web Application">Web App</abbr></a></li>
+	<li><a href="https://www.unzeen.com/service"><abbr title="Web Design">Web Design</abbr></a></li>
+	<li><a href="https://www.unzeen.com/service"><abbr title="Mobile Application">Mobile App</abbr></a></li>
+	<li><a href="https://www.unzeen.com/service"><abbr title="Windows Application">Win App</abbr></a></li>
+	<li><a href="https://www.unzeen.com/service"><abbr title="Server Setting">Server</abbr></a></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="main_about" style="float:right;margin-right:22px;">
+	<iframe src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/likebox.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:315px; height:590px;" allowtransparency="true"></iframe>
+</div>
+
+</div>
+
+
+<div id="wp_footer">
+	<div class="wp_footer_fixed"></div>
+
+<div class="wp_footer_blog">
+
+<div class="list_footer">
+
+
+<h3><span class="light">Recent</span> Entries</h3>
+
+<ul>
+
+	<li><a href="https://www.unzeen.com/article/3616/">สร้างจาร์วิสแบบ ง่ายๆ โง่ๆ ด้วย Raspberry Pi + Snowboy</a></li>
+	<li><a href="https://www.unzeen.com/article/3569/">การสตรีมไฟล์วิดีโอไปยัง Facebook Live และ Youtube Live ด้วย FFmpeg</a></li>
+	<li><a href="https://www.unzeen.com/article/3537/">เขียนโปรแกรมอัพโหลดข้อมูลไปเก็บไว้ที่ Google Drive</a></li>
+	<li><a href="https://www.unzeen.com/article/3506/">การสร้าง LINE Bot ด้วย LINE Messaging API (Official API)</a></li>
+	<li><a href="https://www.unzeen.com/article/3479/">การดักจับข้อมูลที่วิ่งเข้าออกบน HTTP/HTTPS จากแอพในมือถือ Android โดยใช้ Burp Suite</a></li>
+	<li><a href="https://www.unzeen.com/article/3461/">การดาวน์โหลดวิดีโอจาก youtube, udemy, facebook โดยใช้ youtube-dl และ ffmpeg</a></li>
+	<li><a href="https://www.unzeen.com/article/3444/">การเขียนโปรแกรมเพื่อวิเคราะห์รูปภาพโดยใช้ Google Cloud Vision API</a></li>
+	<li><a href="https://www.unzeen.com/article/3425/">การอัพโหลดรูปภาพและวิดีโอขึ้น Instagram โดยใช้ PHP</a></li>
+	<li><a href="https://www.unzeen.com/article/3407/">การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266)</a></li>
+	<li><a href="https://www.unzeen.com/article/3383/">﻿การสร้าง Telegram Bot สำหรับส่งข้อมูลแจ้งเตือนจาก ESP8266</a></li>
+
+</ul>
+
+</div>
+
+
+
+<div class="list_footer_c">
+
+<h3><span class="light">Recent</span> Comments </h3>
+
+<ul>
+
+
+<li><a href="https://www.unzeen.com/article/3616/#comment-3340" title="สร้างจาร์วิ�…">https://proxume… in สร้างจาร์วิ�…</a></li>
+<li><a href="https://www.unzeen.com/article/2388/#comment-3338" title="วัดอุณหภูมิ�…">Proxumer in วัดอุณหภูมิ�…</a></li>
+<li><a href="https://www.unzeen.com/article/3506/#comment-3328" title="การสร้าง LINE Bot �…">MT in การสร้าง LINE Bot �…</a></li>
+<li><a href="https://www.unzeen.com/article/2227/#comment-3300" title="ส่งภาพจากเว�…">ThxGamers in ส่งภาพจากเว�…</a></li>
+<li><a href="https://www.unzeen.com/article/3569/#comment-3298" title="การสตรีมไฟล�…">aye in การสตรีมไฟล�…</a></li>
+<li><a href="https://www.unzeen.com/article/3506/#comment-3290" title="การสร้าง LINE Bot �…">LookHin in การสร้าง LINE Bot �…</a></li>
+<li><a href="https://www.unzeen.com/article/3506/#comment-3289" title="การสร้าง LINE Bot �…">Ying in การสร้าง LINE Bot �…</a></li>
+<li><a href="https://www.unzeen.com/article/2227/#comment-3286" title="ส่งภาพจากเว�…">LookHin in ส่งภาพจากเว�…</a></li>
+<li><a href="https://www.unzeen.com/article/2227/#comment-3285" title="ส่งภาพจากเว�…">boss in ส่งภาพจากเว�…</a></li>
+<li><a href="https://www.unzeen.com/article/3361/#comment-3281" title="การติดตั้งแ�…">sclassic in การติดตั้งแ�…</a></li>
+
+
+</ul>
+
+
+
+</div>
+
+<div class="list_footer_r">
+
+<h3><span class="light">Copyright</span> Notice</h3>
+
+<div style="color:#EFEFEF;font-size:12px">
+	<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/th/" target="_blank" style="color:#EFEFEF;font-size:12px;text-decoration:none">
+    <div style="float:left;width:90px;"><img src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/88x31.png" alt="สัญญาอนุญาตของครีเอทีฟคอมมอนส์" vspace="7" align="top" style="border-width:0"></div>
+    <div style="float:left;width:210px;">ผลงานนี้ ใช้สัญญาอนุญาตของครีเอทีฟคอมมอนส์แบบ แสดงที่มา-อนุญาตแบบเดียวกัน 3.0 ประเทศไทย</div>
+    </a>
+
+    <div style="clear:both">&nbsp;</div>
+    <div style="clear:both">&nbsp;</div>
+
+    <div>
+        <strong>คุณมีเสรีภาพ :</strong>
+        <p>· ที่จะแบ่งปัน - ที่จะทำสำเนา แจกจ่าย และส่งงานดังกล่าวต่อไป</p>
+        <p>· ที่จะเรียบเรียงใหม่ - ที่จะดัดแปลงงานดังกล่าว</p>
+	</div>
+    <div>
+    	<strong>ภายใต้เงื่อนไข :</strong>
+        <p>· แสดงที่มา - คุณต้องแสดงที่มาของงานดังกล่าว ตามรูปแบบที่ผู้สร้างสรรค์หรือผู้อนุญาตกำหนด (แต่ไม่ใช่ในลักษณะที่ว่า พวกเขาสนับสนุนคุณหรือสนับสนุนการที่คุณนำงานไปใช้)</p>
+        <p>· อนุญาตแบบเดียวกัน -  หากคุณดัดแปลง เปลี่ยนรูป หรือต่อเติมงานนี้ คุณต้องใช้สัญญาอนุญาตแบบเดียวกันหรือแบบที่เหมือนกับสัญญาอนุญาตที่ใช้กับ งานนี้เท่านั้น</p>
+    </div>
+</div>
+
+
+</div>
+
+</div>
+
+<div class="wp_main_footer">
+
+    <p>
+    © Copyright 2005-2019, <a href="https://www.unzeen.com/" title="www.unzeen.com">www.unzeen.com</a> all rights reserved. | Powered by <a href="http://www.lookhin.com/" target="_blank" title="LookHin">LookHin</a>
+    </p>
+
+</div>
+
+</div>
+
+  </div>
+
+</div>
+<script type="text/javascript" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/wp-syntax.js.ดาวน์โหลด"></script>
+<script type="text/javascript" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/wp-embed.min.js.ดาวน์โหลด"></script>
+
+
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./» การเขียนโปรแกรมลงบน Sonoff WiFi Smart Switch (ESP8266) _ DevExperience_ ____files/d_vbiawPdxB.html" style="border: none;"></iframe></div><div></div></div></div></body></html>
