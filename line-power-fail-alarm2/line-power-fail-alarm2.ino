@@ -12,6 +12,7 @@
 #define SW_DET  12
 #define SW_PIN  0
 #define LED 13
+//#define LED 2 //nodemcu v3
 
 int state = 0; 
 int stateCount = 0;
@@ -37,8 +38,19 @@ char cap_count[4] = "60";
 bool shouldSaveConfig = false;
 
 // https://meyerweb.com/eric/tools/dencoder/
-String powerDown = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%884%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88";
-String powerUp = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%884%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%A1%E0%B8%B2%E0%B8%9B%E0%B8%81%E0%B8%95%E0%B8%B4%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7";
+// ตอนนี้โรงเจนไฟฟ้าโรงที่4 ไฟฟ้าดับอยู่
+//String powerDown = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%884%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88";
+// ตอนนี้โรงเจนไฟฟ้าโรงที่5 ไฟฟ้าดับอยู่
+//String powerDown = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%885%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88";
+// ตอนนี้โรงเจนไฟฟ้าโรงที่9 ไฟฟ้าดับอยู่
+String powerDown = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%889%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88";
+
+// ตอนนี้โรงเจนไฟฟ้าโรงที่4 ไฟฟ้ามาปกติแล้ว
+//String powerUp = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%884%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%A1%E0%B8%B2%E0%B8%9B%E0%B8%81%E0%B8%95%E0%B8%B4%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7";
+// ตอนนี้โรงเจนไฟฟ้าโรงที่5 ไฟฟ้ามาปกติแล้ว
+//String powerUp = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%885%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%A1%E0%B8%B2%E0%B8%9B%E0%B8%81%E0%B8%95%E0%B8%B4%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7";
+// ตอนนี้โรงเจนไฟฟ้าโรงที่9 ไฟฟ้ามาปกติแล้ว
+String powerUp = "%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%88%E0%B8%99%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%889%20%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%A1%E0%B8%B2%E0%B8%9B%E0%B8%81%E0%B8%95%E0%B8%B4%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7";
 
 void Line_Notify_Send(String msg) {
   digitalWrite(LED, 0); //on
@@ -164,11 +176,20 @@ void setup() {
   //wifiManager.setSTAStaticIPConfig(IPAddress(10,0,1,99), IPAddress(10,0,1,1), IPAddress(255,255,255,0));
   
   //add all your parameters here
-//  WiFiManagerParameter blynk_text("<br><span>BLYNK</span>");
-//  wifiManager.addParameter(&blynk_text);
+  WiFiManagerParameter line_text("<br><span>Line token</span>");
+  wifiManager.addParameter(&line_text);
   wifiManager.addParameter(&custom_LINE_TOKEN);
+
+  WiFiManagerParameter power_down_count_text("<br><span>Power down repeat</span>");
+  wifiManager.addParameter(&power_down_count_text);
   wifiManager.addParameter(&custom_power_down_count);
+
+  WiFiManagerParameter power_up_count_text("<br><span>Power up repeat</span>");
+  wifiManager.addParameter(&power_up_count_text);
   wifiManager.addParameter(&custom_power_up_count);
+
+  WiFiManagerParameter cap_count_text("<br><span>Interval repeat</span>");
+  wifiManager.addParameter(&cap_count_text);
   wifiManager.addParameter(&custom_cap_count);
 
   if (!wifiManager.autoConnect("PowerFailAlarm")) {
@@ -225,6 +246,15 @@ void setup() {
   Serial.println();
   Serial.print("local ip: ");
   Serial.println(WiFi.localIP());
+
+  Serial.print("line_token: ");
+  Serial.println(line_token);
+  Serial.print("POWER_DOWN_SEND_COUNT: ");
+  Serial.println(POWER_DOWN_SEND_COUNT);
+  Serial.print("POWER_UP_SEND_COUNT: ");
+  Serial.println(POWER_UP_SEND_COUNT);
+  Serial.print("POWER_SEND_TIME: ");
+  Serial.println(POWER_SEND_TIME);
 }
 
 void loop() {
@@ -252,7 +282,8 @@ void loop() {
     delay(5000);
   } else { //power up
     if(firstStart) {
-      firstStart = 0;      
+      firstStart = 0;    
+      state = 1;  
       Serial.println("Smart Detector Start");
       Line_Notify_Send("Smart Detector Start");
     } else {
